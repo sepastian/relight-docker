@@ -2,7 +2,7 @@
 
 Docker container for building RTI models using [relight](https://github.com/cnr-isti-vclab/relight) for ingest into [GAMS](https://gams.uni-graz.at/).
 
-![examples/screenshot.jpg]
+![Screenshot](examples/screenshot.jpg)
 
 # Building
 
@@ -25,7 +25,11 @@ file names inside `lights.lp` must match with names of image files.
 Next, use the container to build an RTI model from the images in `examples/ring`, save the results in `web`.
 
 ``` shell
-$ docker run -it --rm -v $(pwd)/examples/ring:/data -v $(pwd)/web:/out sepastian/relight-docker relight-cli /data /out
+$ docker run -it --rm \
+  -v $(pwd)/examples/ring:/data \
+  -v $(pwd)/web:/out \
+  sepastian/relight-docker \
+  relight-cli /data /out
 Nsamples: 160000
 Done in: 6927ms
 ```
