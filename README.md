@@ -52,7 +52,9 @@ Run an HTTP Server to view the resulting RTI model.
 python -m http.server
 ```
 
-Open `http://localhost:8000` in a browser. Firefox in Linux may not be able to display the results, use Chrome instead.
+Open `http://localhost:8000` in a browser. 
+You should see an image similar to the screenshot at the top of this site.
+Note: Firefox in Linux may not be able to display the results, use Chrome instead.
 
 ## Options
 
