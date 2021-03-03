@@ -54,6 +54,18 @@ python -m http.server
 
 Open `http://localhost:8000` in a browser. Firefox in Linux may not be able to display the results, use Chrome instead.
 
+## Options
+
+To display relight's help message, run:
+
+```shell
+docker run -it --rm \
+  sepastian/relight-docker \
+  relight-cli
+```
+
+For further information, consult the [relight project](https://github.com/cnr-isti-vclab/relight).
+
 # Credits
 
 RTI viewer website based on the original [relight project](https://github.com/cnr-isti-vclab/relight).
