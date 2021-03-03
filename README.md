@@ -1,6 +1,6 @@
 # Purpose
 
-Docker container for building RTI models using [relight](https://github.com/cnr-isti-vclab/relight) for ingest into [GAMS](https://gams.uni-graz.at/).
+Docker container for building RTI models using [relight](https://github.com/cnr-isti-vclab/relight).
 
 ![Screenshot](examples/screenshot.jpg)
 
