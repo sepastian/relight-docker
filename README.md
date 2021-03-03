@@ -59,9 +59,45 @@ Open `http://localhost:8000` in a browser. Firefox in Linux may not be able to d
 To display relight's help message, run:
 
 ```shell
-docker run -it --rm \
-  sepastian/relight-docker \
-  relight-cli
+$ docker run -it --rm sepastian/relight-docker relight-cli
+Create an RTI from a set of images and a set of light directions (.lp) in a folder.
+It is also possible to convert from .ptm or .rti to relight format and viceversa.
+
+Usage: relight-cli [-mrdqp]<input folder> [output folder]
+
+       relight-cli [-q]<input.ptm|.rti> [output folder]
+
+       relight-cli [-q]<input.json> [output.ptm]
+
+	input folder containing a .lp with number of photos and light directions
+	optional output folder (default ./)
+
+	-b <basis>: rbf(default), ptm, lptm, hsh, yrbf, bilinear
+	-p <int>  : number of planes (default: 9)
+	-q <int>  : jpeg quality (default: 95)
+	-y <int>  : number of Y planes in YCC
+
+	-n        : extract normals
+	-m        : extract mean image
+	-M        : extract median image (7/8th quantile) 
+	-k <int>x<int>+<int>+<int>: Kropping extracts only the widthxheight+offx+offy part
+
+Ignore exotic parameters below here
+
+	-r <int>  : side of the basis function (default 8, 0 means rbf interpolation)
+	-s <int>  : sampling RAM for pca  in MB (default 500MB)
+	-S <float>: sigma in rgf gaussian interpolation default 0.125 (~100 img)
+	-R <float>: regularization coeff for bilinear default 0.1
+	-B <float>: range compress bits for planes (default 0.0) 1.0 means compress
+	-c <float>: coeff quantization (to test!) default 1.5
+	-C        : apply chroma subsampling 
+	-e        : evaluate reconstruction error (default: false)
+	-E <int>  : evaluate error on a single image (but remove it for fitting)
+
+
+Testing options, will use the input folder as an RTI source: 
+	-D <path> : directory to store rebuilt images
+	-L <x:y:z> : reconstruct only one image from light parameters, output is the filename
 ```
 
 For further information, consult the [relight project](https://github.com/cnr-isti-vclab/relight).
